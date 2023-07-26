@@ -68,7 +68,7 @@ const findRandomPokemon = async (pokemonData) => {
     container.innerHTML = '';
 
     scoreModal.classList.remove('show');
-
+     btnContainer.classList.remove('show');
 
     //get one random pokemon
     const random = Math.floor(Math.random() * pokemonData.length);
