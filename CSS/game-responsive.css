@@ -64,7 +64,25 @@
   .choices button {
     margin: 3px;
   }
-
+.instruction {
+    font-size: 0.8rem;
+    font-weight: 500;
+    position: absolute;
+    bottom: 5%;
+    text-align: center;
+    letter-spacing: 0;
+    color: #fff;
+  }
+  footer {
+    position: fixed;
+    bottom: 0;
+    font-weight: 700;
+    letter-spacing: 0;
+    font-size: 0.7rem;
+    font-style: italic;
+    text-align: center;
+    width: 100%;
+  }
 
 
 
