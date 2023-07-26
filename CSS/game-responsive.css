@@ -1,0 +1,72 @@
+@media screen and (max-width: 500px) {
+  .buttons-container {
+    flex-direction: column;
+    margin: 0 0.5em;
+    gap: 10px;
+    width: 150px;
+    transform: translateX(-200px);
+    transition: .5s ease-in-out;
+    position: absolute;
+    z-index: 1;
+
+
+  }
+  .buttons-container.show,
+  .scoreModal.show {
+    transform: translateX(0);
+  }
+  .generation {
+    width: 100%;
+  }
+  .hamburger-menu {
+    display: block;
+
+  }
+  .line {
+    transition: .4s ease-in-out;
+  }
+
+  /* Apply "X" transformation when .hamburger-menu is active */
+  .hamburger-menu.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .hamburger-menu.active .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+  .score {
+    display: none;
+  }
+  .scoreModal {
+    border-radius: 6px;
+    width: 80%;
+    text-align: center;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    margin: 0 auto;
+    transform: translateX(-500px);
+    transition: .5s ease-in-out;
+  }
+  .points-score {
+    font-size: 10rem;
+  }
+  .score-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .choices button {
+    margin: 3px;
+  }
+
+
+
+
+
+}

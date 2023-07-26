@@ -1,0 +1,290 @@
+.modal,
+.displayAllModal,
+.fetchTypeModal,
+.pokeSearchModal {
+  position: fixed;
+  margin: 30px auto;
+  border: none;
+  padding: 1em 3em 3em 3em;
+  outline: none;
+  background: linear-gradient(to bottom right, #1A4360, #40557C, #696795, #9478AA, #C089B9, #EC9BC3);
+  border-radius: 6px;
+  
+  
+
+}
+
+::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal h1 {
+  text-align: center;
+  color: #83a5bc;
+  margin-bottom: 20px;
+}
+
+.modal-exit,
+.modal-exit2,
+.modal-exit3,
+.modal-exit4 {
+  font-size: 1.3rem;
+  color: #565487;
+  position: absolute;
+  top:  5px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.modal-exit:hover,
+.modal-exit2:hover,
+.modal-exit3:hover,
+.modal-exit4:hover {
+  opacity: 0.8;
+}
+
+.modal-exit:active,
+.modal-exit2:active,
+.modal-exit3:active,
+.modal-exit4:active {
+  opacity: 0.5;
+}
+
+
+.modal-info img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+
+}
+.modal-info {
+  display: grid;
+  align-items: center;
+  gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+}
+.modal-info > div {
+  padding: 5px;
+  text-align: center;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  opacity: 0;
+  transition:  0.3s ease-in;
+}
+.modal-pokemons:hover .remove-btn {
+  opacity: 1;
+}
+.modal-pokemons {
+  box-shadow: 0 0 3px -1px white, 0 0 3px 1px #BC87B8, 0 0 12px 2px #A45495, 0px 10px 20px -5px black, 0 0 40px -30px #A45495, 0 0 50px -20px #A45495;
+}
+
+.modal-poke-names {
+  color: #e8effc;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.modal-poke-types {
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-style: italic;
+  color: #75f1d8;
+}
+
+.screenshot {
+  text-align: center;
+  color: #2b2d2f;
+  font-weight: 500;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.screenshot img {
+  cursor: pointer;
+}
+
+/* modal zoom in and out animation starts*/
+
+.displayAllModal.zoom-in,
+.modal.zoom-in,
+.fetchTypeModal.zoom-in,
+.pokeSearchModal.zoom-in {
+  transform: scaleY(0.01) scaleX(0);
+  animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.displayAllModal.zoom-out,
+.modal.zoom-out,
+.fetchTypeModal.zoom-out,
+.pokeSearchModal.zoom-out {
+  transform: scale(1);
+	animation: unfoldOut .8s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes unfoldIn {
+  0% {
+    transform: scaleY(0.005) scaleX(0);
+ }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+ }
+  100% {
+    transform: scaleY(1) scaleX(1);
+ }
+}
+
+@keyframes unfoldOut {
+  0% {
+    transform: scaleY(1) scaleX(1);
+ }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+ }
+  100% {
+    transform: scaleY(0.005) scaleX(0);
+ }
+}
+
+/* modal zoom in and out animation ends*/
+
+
+
+
+
+/* ALL CARDS MODAL */
+.displayAllModal,
+.fetchTypeModal,
+.pokeSearchModal {
+  overflow: hidden;
+  max-width: 1000px;
+  
+}
+
+
+
+.stats-container,
+.types,
+.abilities-container h1 {
+  text-shadow: 2px 2px 10px #6B0D6B;
+  color: #e9a8e9;
+}
+
+.modal,
+.displayAllModal,
+.fetchTypeModal,
+.pokeSearchModal {
+  background: linear-gradient(to bottom right, rgba(26, 67, 96, 0.8), rgba(64, 85, 124, 0.8), rgba(105, 103, 149, 0.8), rgba(148, 120, 170, 0.8), rgba(192, 137, 185, 0.8), rgba(236, 155, 195, 0.8));
+
+  
+}
+
+
+
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+
+
+.stats-logo {
+  font-size: 0.7rem;
+  
+}
+
+.pokemon-name-effect-container {
+  display: flex; 
+  align-items: center; 
+  
+
+}
+
+.stats-container {
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+.sprite {
+  width: 300px;
+}
+.stats-icon {
+  font-size: 2rem;
+  color: crimson;
+}
+
+.attack-icon,
+.special-attack-icon,
+.HP-icon,
+.defense-icon,
+.special-defense-icon,
+.speed-icon {
+  width: 50px;
+  margin-bottom: 5px;
+}
+.stats-center {
+  text-align: center;
+}
+.stats-logo p {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.stats-center h1{
+  font-size: 0.7rem;
+  margin: 5px;
+}
+.types {
+  background-color: #565487;
+  text-align: center;
+  padding: 3px;
+  margin: 10px;
+  font-style: italic;
+  font-weight: 700;
+}
+.modal2-pokeName {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 10px;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+
+ 
+
+
+}
+.abilities-container {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.abilities-container h1 {
+  margin: 30px 0 10px 0;
+
+}
+.effect {
+  line-height: 20px;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}
+.ability-name {
+  margin-bottom: 1em;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}

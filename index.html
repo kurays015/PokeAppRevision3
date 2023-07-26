@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokéDex</title>
+    <!--Linked CSS-->
+    <link rel="icon" type="svg" href="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/loader.css">
+    <link rel="stylesheet" href="CSS/modal.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/pokemon-types-logo.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+
+    </style>
+  </head>
+  <body>
+
+    <!-- Loading screen -->
+    <div class="loader-container" id="loaderContainer">
+      <div class="loader">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+      </div>
+    </div>
+    
+
+      <div>
+          <img class="pokemon-logo" src="pokeball.png" width="80px">
+      </div>
+      <nav>
+        <ul>
+          <li> <a class="pokemonGameButton" href="PokéGame.html">Who's that Pokémon?</a></li>
+
+          <li class="dropdown">
+            <a class="dropbtn">Pokémon Generations</a>
+            <div class="dropdown-content">
+              <a class="generation-button" href="#">Pokémon Generation 1</a>
+              <a class="generation-button" href="#">Pokémon Generation 2</a>
+              <a class="generation-button" href="#">Pokémon Generation 3</a>
+              <a class="generation-button" href="#">Pokémon Generation 4</a>
+              <a class="generation-button" href="#">Pokémon Generation 5</a>
+              <a class="generation-button" href="#">Pokémon Generation 6</a>
+              <a class="generation-button" href="#">Pokémon Generation 7</a>
+              <a class="generation-button" href="#">Pokémon Generation 8</a>
+              <a class="generation-button" href="#">Pokémon Generation 9</a>
+            </div>
+          </li>
+          
+          <li> <a href="#" class="alert">About</a></li>
+        </ul>
+      </nav>
+    </header>
+   
+    
+
+    <main>
+      <aside class="types-sidebar">
+        <div class="search-and-home">
+          <input type="text" placeholder="Search pokemon..." class="pokemon-search">
+        </div>
+      
+        <div>
+          <div class="icon electric">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/electric.svg">
+          </div> 
+          <p data-value="electric" class="poke-type">Electric</p>
+        </div>
+
+        <div>
+          <div class="icon water">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/water.svg">
+          </div> 
+          <p data-value="water" class="poke-type">Water</p>
+        </div>
+
+        <div>
+          <div class="icon rock">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/rock.svg">
+          </div> 
+          <p data-value="rock" class="poke-type">Rock</p>
+        </div>
+        
+        <div>
+          <div class="icon normal">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/normal.svg">
+          </div> 
+          <p data-value="normal" class="poke-type">Normal</p>
+        </div>
+
+        <div>
+          <div class="icon flying">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/flying.svg">
+          </div> 
+          <p data-value="flying" class="poke-type">Flying</p>
+        </div>
+
+        <div>
+          <div class="icon poison">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/poison.svg">
+          </div> 
+          <p data-value="poison" class="poke-type">Poison</p>
+        </div>
+
+        <div>
+          <div class="icon ground">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/ground.svg">
+          </div> 
+          <p data-value="ground" class="poke-type">Ground</p>
+        </div>
+
+        <div>
+          <div class="icon bug">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/bug.svg">
+          </div> 
+          <p data-value="bug" class="poke-type">Bug</p>
+        </div>
+
+        <div>
+          <div class="icon ghost">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/ghost.svg">
+          </div> 
+          <p data-value="ghost" class="poke-type">Ghost</p>
+        </div>
+
+        <div>
+          <div class="icon steel">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/steel.svg">
+          </div> 
+          <p data-value="steel" class="poke-type">Steel</p>
+        </div>
+
+        <div>
+          <div class="icon fire">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/fire.svg">
+          </div> 
+          <p data-value="fire" class="poke-type">Fire</p>
+        </div>
+
+        <div>
+          <div class="icon grass">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/grass.svg">
+          </div> 
+          <p data-value="grass" class="poke-type">Grass</p>
+        </div>
+
+        <div>
+          <div class="icon psychic">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/psychic.svg">
+          </div> 
+          <p data-value="psychic" class="poke-type">Psychic</p>
+        </div>
+        
+        <div>
+          <div class="icon ice">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/ice.svg">
+          </div> 
+          <p data-value="ice" class="poke-type">Ice</p>
+        </div>
+
+        <div>
+          <div class="icon dragon">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/dragon.svg">
+          </div> 
+          <p data-value="dragon" class="poke-type">Dragon</p>
+        </div>
+
+        <div>
+          <div class="icon dark">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/dark.svg">
+          </div> 
+          <p data-value="dark" class="poke-type">Dark</p>
+        </div>
+
+        <div>
+          <div class="icon fairy">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/fairy.svg">
+          </div>
+          <p data-value="fairy" class="poke-type">Fairy</p>
+        </div>
+
+        <div>
+          <div class="icon fighting">
+            <img src="https://duiker101.github.io/pokemon-type-svg-icons/icons/fighting.svg">
+          </div>
+          <p data-value="fighting" class="poke-type">Fighting</p>
+        </div>
+
+        <div>
+          <div class="icon un">
+            <img src="https://www.svgrepo.com/show/131030/question-mark.svg">
+          </div>
+          <p data-value="unknown" class="poke-type">Unknown</p>
+        </div>    
+        
+      </aside>
+
+      <section>
+        <div class="add-to-team">
+          <div class="poke-ball-container">
+            <h5 class="pokemon-count"></h5>
+            <img class="pokeball-icon" src="https://pokemon.gisketch.com/assets/pokeball-5f24c66a.png">
+          </div>           
+        </div>
+      </section>
+
+      <section>
+        <!--rendered when the page loads-->
+        <div class="rendered-pokemons"></div>
+        <!-- back button -->
+        <i class="fa-solid fa-arrow-left-long long-arrow"></i>
+        <div class="pokemonTypesContainer"></div>
+
+        <!--pokemon generations container-->
+        <div class="generations-container"></div>
+
+        <!--guess the pokemon game-->
+        <div class="pokemonGameContainer"></div>
+      </section>
+      
+        <dialog  class="modal">
+          <i class="fa-regular fa-circle-xmark modal-exit"></i> 
+          <h1>YOU HAVE CHOSEN:</h1>
+          <div class="modal-info"></div>
+          <div class="screenshot">
+            Click to screenshot 
+            <img src="https://cdn-icons-png.flaticon.com/512/4562/4562932.png" width="50px" alt="screenshot">
+          </div>
+        </dialog>
+
+        <section>
+          <dialog class="displayAllModal"></dialog>
+          <dialog class="fetchTypeModal"></dialog>
+        </section>
+        
+    </main>
+
+    <!-- screenshot library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.0/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+
+    
+    <!-- JS files -->
+    <script src="javascript/cleaning code/loader.js"></script>
+    <script src="javascript/cleaning code/pokemonGenerations.js"></script>
+    <script type="module" src="javascript/cleaning code/game.js"></script>
+    <script type="module" src="javascript/cleaning code/main.js"></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+    
+  </body>
+</html>
+
