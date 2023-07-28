@@ -142,6 +142,11 @@ let userScore = 0;
 
 const renderChoices = (threeChoices, correctAnswer) => {
 
+for (let i = threeChoices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [threeChoices[i], threeChoices[j]] = [threeChoices[j], threeChoices[i]];
+}
+
 if(removeUserEvent) {
   const choicesBtn = document.querySelectorAll('.choices1, .choices2, .choices3');
   choicesBtn.forEach(choice => {
