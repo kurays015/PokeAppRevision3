@@ -9,17 +9,19 @@
     position: absolute;
     z-index: 1;
 
-
   }
+ 
   .buttons-container.show,
   .scoreModal.show {
     transform: translateX(0);
   }
+
+
   .generation {
     width: 100%;
   }
   .hamburger-menu {
-    display: block;
+    display: inline-block;
 
   }
   .line {
@@ -38,6 +40,7 @@
   .hamburger-menu.active .line:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
   }
+
   .score {
     display: none;
   }
@@ -53,35 +56,15 @@
     transform: translateX(-500px);
     transition: .5s ease-in-out;
   }
-  .points-score {
+  .points {
     font-size: 10rem;
   }
-  .score-mobile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .choices {
+    margin: 0;
   }
   .choices button {
     margin: 3px;
-  }
-.instruction {
-    font-size: 0.8rem;
-    font-weight: 500;
-    position: absolute;
-    bottom: 5%;
-    text-align: center;
-    letter-spacing: 0;
-    color: #fff;
-  }
-  footer {
-    position: fixed;
-    bottom: 0;
-    font-weight: 700;
-    letter-spacing: 0;
-    font-size: 0.7rem;
-    font-style: italic;
-    text-align: center;
-    width: 100%;
+    
   }
 
 
