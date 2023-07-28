@@ -51,7 +51,7 @@ const getRandomPokemon = async () => {
     
     generationsBtn.forEach((generation, index) => {
       const pokemonData = generationsArray[index].pokemon_species;
-      generation.addEventListener('click', () => findRandomPokemon(pokemonData));
+      generation.addEventListener('click', (e) => findRandomPokemon(e, pokemonData));
     });
 
   } catch(error) {
@@ -62,37 +62,53 @@ getRandomPokemon();
 
 //-------------------------------------------------------------------------------
 const scoreModal = document.querySelector('.scoreModal');
+//hamburger nav
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const btnContainer = document.querySelector(' .buttons-container ');
 
-const findRandomPokemon = async (pokemonData) => {
-    
-    container.innerHTML = '';
+hamburgerMenu.addEventListener('click', () => {
+  hamburgerMenu.classList.toggle('active');
+  btnContainer.classList.toggle('show');
+});
 
-    scoreModal.classList.remove('show');
-     btnContainer.classList.remove('show');
 
-    //get one random pokemon
-    const random = Math.floor(Math.random() * pokemonData.length);
-    //correct answer
-    const generateRandomPokemon = pokemonData[random];
 
-    //find that random pokemon in pokemonAbilitiesDataArray
-    const found = pokemonAbilitiesDataArray.find(pokemon => pokemon.name === generateRandomPokemon.name);
-    //remove the null and undefined
-    const hasValidData = pokemonAbilitiesDataArray.some(pokemon =>
-    pokemon !== undefined && pokemon.sprites.other.dream_world.front_default !== null);
+//---------------------------------------------------------------------------
 
-    if(found && hasValidData) {
-      const pokeHTML = await renderRandomPokemon(found);
-      container.innerHTML = pokeHTML;
-    }
+const findRandomPokemon = async (e, pokemonData) => {
 
-    //return value of chooseAnswer function
-    const twoRandomPokemon = chooseAnswer(pokemonData);
-    //combine the 2 random, and correct answer to single array 
-    const threeChoices = [...twoRandomPokemon, generateRandomPokemon]; 
+  //get one random pokemon
+  const random = Math.floor(Math.random() * pokemonData.length);
+  //correct answer
+  const generateRandomPokemon = pokemonData[random];
 
-    //pass the combined choices as argument to renderChoices
-    renderChoices(threeChoices, generateRandomPokemon.name);
+  //find that random pokemon in pokemonAbilitiesDataArray
+  const found = pokemonAbilitiesDataArray.find(pokemon => pokemon.name === generateRandomPokemon.name);
+  //remove the null and undefined
+  const hasValidData = pokemonAbilitiesDataArray.some(pokemon =>
+  pokemon !== undefined && pokemon.sprites.other.dream_world.front_default !== null);
+
+  //clear container
+  container.innerHTML = '';
+
+  //remove classes
+  scoreModal.classList.remove('show');
+  hamburgerMenu.classList.remove('active')
+  btnContainer.classList.remove('show')
+  
+
+  if(found && hasValidData) {
+    const pokeHTML = await renderRandomPokemon(found);
+    container.innerHTML = pokeHTML;
+  }
+
+  //return value of chooseAnswer function
+  const twoRandomPokemon = chooseAnswer(pokemonData);
+  //combine the 2 random, and correct answer to single array 
+  const threeChoices = [...twoRandomPokemon, generateRandomPokemon]; 
+
+  //pass the combined choices as argument to renderChoices
+  renderChoices(threeChoices, generateRandomPokemon.name);
 
 }
 
@@ -100,38 +116,47 @@ const findRandomPokemon = async (pokemonData) => {
 //-------------------------------------------------------------------------------
 
 const renderRandomPokemon = async (found) => {
-const { sprites } = found;
-return `<img class="random-pokeImg" style="filter: brightness(0%);" width="300px" src="${sprites.other.home.front_default}">`;
+  const { sprites } = found;
+  return `<img class="random-pokeImg" style="filter: brightness(0%);" width="300px" src="${sprites.other.home.front_default}">`;
 }
 
 //-------------------------------------------------------------------------------
 
 const chooseAnswer = (pokemonData) => {
-const threeChoices = [];
+  const threeChoices = [];
 
-while(threeChoices.length < 2) {
-  const random = Math.floor(Math.random() * pokemonData.length);
-  const randomPoke = pokemonData[random];
-  if(!threeChoices.includes(randomPoke)) {
-    threeChoices.push(randomPoke)
+  while(threeChoices.length < 2) {
+    const random = Math.floor(Math.random() * pokemonData.length);
+    const randomPoke = pokemonData[random];
+    if(!threeChoices.includes(randomPoke)) {
+      threeChoices.push(randomPoke)
+    }
   }
-}
-return threeChoices;
+  return threeChoices;
 }
 
 //------------------------------------------------------------------------------
+let HP = 5;
+let removeUserEvent = null;
 let userScore = 0;
 
 const renderChoices = (threeChoices, correctAnswer) => {
 
+if(removeUserEvent) {
+  const choicesBtn = document.querySelectorAll('.choices1, .choices2, .choices3');
+  choicesBtn.forEach(choice => {
+    choice.removeEventListener('click', removeUserEvent);
+  })
+}
+
+removeUserEvent = (e) => handleChoicesClick(e, correctAnswer);
+
 // Get all choice buttons and add event listeners to each one
 const choicesBtn = document.querySelectorAll('.choices1, .choices2, .choices3');
 choicesBtn.forEach((choice, index) => {
-choice.addEventListener('click', e => handleChoicesClick(e, correctAnswer), { once : true});
-choice.innerHTML = threeChoices[index].name;
+  choice.addEventListener('click', removeUserEvent, {once : true});
+  choice.innerHTML = threeChoices[index].name;
 });
-
-console.log(threeChoices);
 };
 
 
@@ -139,37 +164,28 @@ const handleChoicesClick = (e, correctAnswer) => {
 
 const img = document.querySelector('.random-pokeImg');
 
-// Get the text content of the clicked choices
-const clickedChoice = e.target.textContent;
+  // Get the text content of the clicked choices
+  const clickedChoice = e.target.textContent;
 
-// Check if the clicked choice is the correct answer
-if (clickedChoice === correctAnswer) {
-//increment score
-userScore++;
+  // Check if the clicked choice is the correct answer
+  if (clickedChoice === correctAnswer) {
+    //increment score
+    userScore++;
 
-//score modal
-scoreModal.classList.add('show');
+    //score modal
+    scoreModal.classList.add('show');
 
-//dispaly pc score
-document.querySelector('.score').innerHTML = userScore;
-//display mobile score
-document.querySelector('.points-score').innerHTML = userScore;
+    //dispaly pc score
+    document.querySelector('.score').innerHTML = userScore;
+    //display mobile score
+    document.querySelector('.points').innerHTML = userScore;
 
-img.style.filter = 'brightness(100%)';
+    img.style.filter = 'brightness(100%)';
 
-alert(`Tama!, panty mo pstingin. Score: ${userScore}`);
-} else {
-alert('Mali!, panty mo pstingin.');
-}
+    console.log('Correct!')
+
+  } else {
+    console.log('Wrong!')
+  }
 };
 //---------------
-//burger
-const hamburgerMenu = document.querySelector('.hamburger-menu');
-const btnContainer = document.querySelector(' .buttons-container ');
-
-hamburgerMenu.addEventListener('click', function() {
-hamburgerMenu.classList.toggle('active');
-btnContainer.classList.toggle('show');
-});
-
-
